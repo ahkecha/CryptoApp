@@ -21,7 +21,10 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins }) => {
             getCoinMarket()
         }, [])
     )
-        function renderWalletInfoSection() {
+
+    let totalWallet = myHoldings.reduce((a, b) =>  a + (b.total || 0), 0 )
+    
+    function renderWalletInfoSection() {
             return (
                 <View
                     style={{
@@ -34,8 +37,8 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins }) => {
                     {/* Wallet Balance */}
                     <BalanceInfo 
                         title="My wallet"
-                        displayAmount="45,000"
-                        changPct="2.30"
+                        displayAmount={totalWallet}
+                        changePct={2.30}
                         containerStyle={{
                             marginTop: 50
                         }}

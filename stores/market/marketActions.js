@@ -39,7 +39,7 @@ export function getHoldings(holdings = [], currency = "usd", order, orderBy="mar
         }).then((response) => {
             console.log("GetHoldings")
             console.log(response)
-            if(response.state == 200) {
+            if(response.status == 200) {
                 // Massage data
                 let myHoldings = response.data.map((item) =>{
                     // Retrieve our current holdings -> current quantity
@@ -111,13 +111,13 @@ export function getCoinMarket(currency = "usd", orderBy = "market_cap_desc", spa
         }).then((response) => {
             console.log("getCoinMarket")
             console.log(response)
-            if(response.state == 200) {
-                dispatch(getCoinMarkeSuccess(response.data))
+            if(response.status == 200) {
+                dispatch(getCoinMarketSuccess(response.data))
             } else {
-                dispatch(getCoinMarkeFailure(response.data))
+                dispatch(getCoinMarketFailure(response.data))
             }
         }).catch((error) => {
-            dispatch(getCoinMarkeFailure(error))
+            dispatch(getCoinMarketFailure(error))
         })
     }
 }
