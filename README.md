@@ -30,12 +30,8 @@ npm run test
 
 👤 **akecha**
 
-* Website: https://www.hackthebox.eu/home/users/profile/222388
 * Github: [@akecha](https://github.com/akecha)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
