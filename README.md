@@ -6,25 +6,22 @@
   </a>
 </p>
 
-> Simple Crypto Wallet app
+> a Simple Crypto Wallet app
 
 ## Install
 
 ```sh
 npm install
+cd ios
+pod install
 ```
 
 ## Usage
 
 ```sh
-npm run start
+npx react-native run-ios
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
 
 ## Author
 
