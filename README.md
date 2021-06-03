@@ -6,36 +6,29 @@
   </a>
 </p>
 
-> Simple Crypto Wallet app
+> a Simple Crypto Wallet app
 
 ## Install
 
 ```sh
 npm install
+cd ios
+pod install
 ```
 
 ## Usage
 
 ```sh
-npm run start
+npx react-native run-ios
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
 
 ## Author
 
 👤 **akecha**
 
-* Website: https://www.hackthebox.eu/home/users/profile/222388
 * Github: [@akecha](https://github.com/akecha)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
