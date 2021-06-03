@@ -7,7 +7,7 @@ import {
 
 import {connect} from "react-redux"
 
-import {IconTextButton} from "../components";
+import { IconTextButton } from "../components";
 import {COLORS, SIZES, icons} from "../constants";
 
 const MainLayout = ({children, isTradeModalVisible}) => {
