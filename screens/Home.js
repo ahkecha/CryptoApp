@@ -7,7 +7,7 @@ import{connect} from "react-redux";
 import {getHoldings, getCoinMarket} from "../stores/market/marketActions";
 import {useFocusEffect} from "@react-navigation/native";
 import { MainLayout } from "./";
-import {BalanceInfo} from "../components";
+import {BalanceInfo, IconTextButton} from "../components";
 
 import {SIZES, COLORS, FONTS, dummyData, icons } from "../constants";
 
@@ -22,7 +22,9 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins }) => {
         }, [])
     )
 
-    let totalWallet = myHoldings.reduce((a, b) =>  a + (b.total || 0), 0 )
+    let totalWallet = myHoldings.reduce((a, b) =>  a + (b.total || 0), 0)
+    let valueChange = myHoldings.reduce((a, b) => a + (b.holding_value_change || 0), 0)
+    let percChange = valueChange / (totalWallet - valueChange ) * 100
     
     function renderWalletInfoSection() {
             return (
@@ -38,13 +40,43 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins }) => {
                     <BalanceInfo 
                         title="My wallet"
                         displayAmount={totalWallet}
-                        changePct={2.30}
+                        changePct={percChange}
                         containerStyle={{
                             marginTop: 50
                         }}
                     />
 
                     {/* Buttons */}
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            marginTop: 30,
+                            marginBottom: -15,
+                            paddingHorizontal: SIZES.radius
+                        }}
+                    >
+                        <IconTextButton 
+                            label="Transfer"
+                            icon={icons.send}
+                            containerStyle={{
+                                flex: 1,
+                                height: 40,
+                                marginRight: SIZES.radius
+                            }}
+                            onPress={() => console.log("Transfer")}
+                        />
+                        <IconTextButton 
+                            label="Withdraw"
+                            icon={icons.withdraw}
+                            containerStyle={{
+                                flex: 1,
+                                height: 40,
+                                marginRight: SIZES.radius
+                            }}
+                            onPress={() => console.log("Withdraw")}
+                        />
+
+                    </View>
                 
                 </View>
             )
