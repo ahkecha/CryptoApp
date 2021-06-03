@@ -24,7 +24,7 @@ export const getHoldingsFailure = (error) => ({
     payload: {error}
 })
 
-export function getHoldings(holdings = [], currency = "usd", order, orderBy="market_cap_desc", sparkline = true, priceChangePerc= "7d", perPage = 10, page = 1) {
+export function getHoldings(holdings = [], currency = "usd", order, orderBy = "market_cap_desc", sparkline = true, priceChangePerc = "7d", perPage = 10, page = 1) {
     return dispatch => {
         dispatch(getHoldingsBegin())
         let ids = holdings.map((item) => {return item.id}).join(",")
@@ -34,16 +34,16 @@ export function getHoldings(holdings = [], currency = "usd", order, orderBy="mar
             url: apiUrl,
             method: 'GET',
             headers: {
-                Accept: 'application/json'
+                Accept: "application/json"
             }
         }).then((response) => {
             console.log("GetHoldings")
             console.log(response)
             if(response.status == 200) {
                 // Massage data
-                let myHoldings = response.data.map((item) =>{
+                let myHoldings = response.data.map((item) => {
                     // Retrieve our current holdings -> current quantity
-                    let coin = holdings.find(a => a.ud == item.id)
+                    let coin = holdings.find(a => a.id == item.id)
 
                     // price 7d
                     let price7d = item.current_price / ( 1 + item.price_change_percentage_7d_in_currency * 0.01)
@@ -58,10 +58,9 @@ export function getHoldings(holdings = [], currency = "usd", order, orderBy="mar
                         price_change_percentage_7d_in_currency: item.price_change_percentage_7d_in_currency,
                         holdings_value_change_7d: (item.current_price - price7d) * coin.qty,
                         sparkline_in_7d: { 
-                            value: item.sparkline_in_7d.price.map(
-                                (price) => {
-                                    return price * coin.qty
-                                }
+                            value: item.sparkline_in_7d.price.map((price) => {
+                                return price * coin.qty
+                            }
                             )
                         }
 
