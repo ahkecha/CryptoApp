@@ -45,7 +45,7 @@ import {
                         style = {{
                             width:10,
                             height: 10,
-                            AlignSelf: 'center',
+                            alignSelf: 'center',
                             tintColor: (changePct > 0) ? COLORS.lightGreen : COLORS.red,
                             transform: (changePct > 0) ? [{rotate: '45deg'}] :  [{rotate: '125deg'}]
                         }}
