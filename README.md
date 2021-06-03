@@ -22,6 +22,10 @@ pod install
 npx react-native run-ios
 ```
 
+## Screenshots
+
+![Screenshot](q.png)
+
 
 ## Author
 
