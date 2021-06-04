@@ -24,7 +24,8 @@ npx react-native run-ios
 
 ## Screenshots
 
-![Screenshot](q.png)
+![Screenshot](imgs/1.png)
+![Screenshot](imgs/2.png)
 
 
 ## Author
